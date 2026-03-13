@@ -122,14 +122,14 @@ El repositorio incluye un documento PDF con información detallada sobre el sist
 * Decisiones técnicas
 * Estructura de carpetas
 * Buenas prácticas utilizadas
-* [Documentación técnica](./docs/documentacion-tecnica.pdf)
+* [Documentación técnica](./pokemon-app/docs/documentacion-tecnica.pdf)
 
 ### Documentación Funcional de la Interfaz de Usuario
 
 * Descripción de la interfaz
 * Flujo de interacción del usuario
 * Explicación de funcionalidades
-* [Documentación funcional de la interfaz de usuario](./docs/documentacion-interfaz-usuario.pdf)
+* [Documentación funcional de la interfaz de usuario](./pokemon-app/docs/documentacion-interfaz-usuario.pdf)
 ---
 
 ## Licencia
