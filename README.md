@@ -61,7 +61,8 @@ Para ejecutar el proyecto localmente se recomienda:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/pokemon-app.git
+git clone https://github.com/quint4l/PokemonUI.git
+cd PokemonUI
 cd pokemon-app
 ```
 
