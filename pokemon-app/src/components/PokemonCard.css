@@ -145,6 +145,7 @@
   margin-bottom: 16px;
   position: relative;
   z-index: 3;
+  flex-wrap: wrap; /* Permite que los badges se envuelvan en móviles */
 }
 
 .type-badge {
@@ -226,21 +227,23 @@
 .pokemon-extra {
   display: flex;
   justify-content: space-between;
-  background: #f8f8f8; 
-  padding: 14px;
+  gap: 10px;
+  background: #f8f8f8;
+  padding: 12px;
   border: 2px solid #000;
   box-shadow: 4px 4px 0 #000;
   margin-top: 12px;
-  position: relative;
-  z-index: 3;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .extra-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex: 1;
+  min-width: 0;
 }
 
 .extra-label {
@@ -248,27 +251,31 @@
   color: #333;
   text-transform: uppercase;
   font-family: 'Press Start 2P', cursive;
-  background: #ffde00; 
-  padding: 6px 12px;
-  border: 1px solid #000;
+  background: #ffde00;
+  padding: 8px 12px;
+  border: 2px solid #000;
   box-shadow: 3px 3px 0 #000;
   width: 100%;
   text-align: center;
   line-height: 1.4;
+  word-break: break-word;
+  box-sizing: border-box;
 }
 
 .extra-value {
-  font-size: 1.6rem; 
+  font-size: 1.3rem; 
   font-weight: bold;
   color: #000;
-  font-family: 'Courier New', monospace;
+  font-family: 'Press Start 2P', cursive;
   background: white;
-  padding: 8px 16px;
+  padding: 10px 12px; 
   border: 2px solid #000;
   box-shadow: 3px 3px 0 #000;
   width: 100%;
   text-align: center;
   text-transform: capitalize;
+  word-break: break-word;
+  box-sizing: border-box;
 }
 
 /* Estado de carga */
@@ -297,4 +304,164 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Móviles (hasta 767px) */
+@media (max-width: 767px) {
+  .pokemon-card {
+    padding: 12px;
+  }
+
+  .card-header {
+    margin-bottom: 8px;
+  }
+
+  .pokemon-id {
+    font-size: 0.65rem;
+    padding: 4px 8px;
+  }
+
+  .pokemon-name {
+    font-size: 0.9rem;
+    max-width: 65%;
+  }
+
+  .pokemon-image-container {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 12px;
+    padding: 8px;
+  }
+
+  .pokemon-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokemon-types {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .type-badge {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    box-shadow: 3px 3px 0 #000;
+  }
+
+  .pokemon-stats {
+    padding: 10px;
+  }
+
+  .stat-row {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .stat-label {
+    width: 55px;
+    font-size: 0.6rem;
+  }
+
+  .stat-bar-container {
+    height: 22px;
+  }
+
+  .stat-value {
+    font-size: 0.8rem;
+    right: 4px;
+  }
+
+  /* Apilar la sección extra verticalmente */
+  .pokemon-extra {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .extra-item {
+    width: 100%;
+  }
+
+  .extra-label {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+
+  .extra-value {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+}
+
+/* Tablets (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pokemon-card {
+    padding: 14px;
+  }
+  
+  .pokemon-image-container {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .pokemon-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .pokemon-name {
+    font-size: 1rem;
+  }
+  
+  .type-badge {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+    width: 60px;
+  }
+  
+  .stat-value {
+    font-size: 0.9rem;
+  }
+  
+  .extra-label {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+  
+  .extra-value {
+    font-size: 1.1rem;
+    padding: 8px 8px;
+  }
+}
+
+/* Pantallas grandes (más de 1024px) - ajustes opcionales */
+@media (min-width: 1025px) {
+  .pokemon-card {
+    /* Puedes aumentar ligeramente el padding si la cuadrícula lo permite */
+    padding: 20px;
+  }
+
+  .pokemon-name {
+    font-size: 1.4rem;
+  }
+
+  .pokemon-image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .pokemon-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .type-badge {
+    font-size: 1.1rem;
+    padding: 10px 24px;
+  }
 }

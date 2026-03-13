@@ -1,28 +1,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* ... */
-}
-
-* {
-  box-sizing: border-box;
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+
+#root {
+  background: transparent;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-
+/* Estilos para estados de carga/error */
 .loading, .error, .no-results {
   text-align: center;
   padding: 40px;
   font-size: 1.2rem;
   color: #555;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #000;
+  margin: 20px;
 }
 
+/* Móviles (hasta 600px) */
+@media (max-width: 600px) {
+  .loading, .error, .no-results {
+    padding: 25px;
+    font-size: 1rem;
+    margin: 15px;
+  }
+}
 
+/* Tablets (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .loading, .error, .no-results {
+    padding: 30px;
+    font-size: 1.1rem;
+    margin: 18px;
+  }
+}
 
+/* Móviles muy pequeños (hasta 400px) */
+@media (max-width: 400px) {
+  .loading, .error, .no-results {
+    padding: 15px;
+    font-size: 0.85rem;
+    margin: 10px;
+  }
+}

@@ -86,6 +86,7 @@
   min-width: 40px;
 }
 
+/* Móviles (hasta 600px) */
 @media (max-width: 600px) {
   .pagination-container {
     align-self: center;
@@ -112,5 +113,60 @@
   .pagination-button.last {
     font-size: 0.5rem;
     padding: 6px 8px;
+  }
+}
+
+/* Tablets (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .pagination-container {
+    align-self: center;
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 12px 15px;
+  }
+
+  .pagination-button {
+    font-size: 0.65rem;
+    padding: 7px 8px;
+    min-width: 32px;
+  }
+
+  .pagination-info {
+    font-size: 0.65rem;
+  }
+
+  .pagination-button.first,
+  .pagination-button.last {
+    font-size: 0.55rem;
+    padding: 7px 10px;
+  }
+}
+
+/* Móviles muy pequeños (hasta 400px) */
+@media (max-width: 400px) {
+  .pagination-container {
+    padding: 8px;
+  }
+
+  .pagination-button {
+    font-size: 0.5rem;
+    padding: 4px 4px;
+    min-width: 26px;
+  }
+
+  .pagination-info {
+    font-size: 0.5rem;
+  }
+
+  .pagination-button.first,
+  .pagination-button.last {
+    font-size: 0.45rem;
+    padding: 4px 6px;
+  }
+
+  .pagination-button.prev,
+  .pagination-button.next {
+    font-size: 0.8rem;
+    padding: 4px 8px;
   }
 }
