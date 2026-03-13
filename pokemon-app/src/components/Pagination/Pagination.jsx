@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPage } from '../store/slices/pokemonSlice';
+import { setPage } from '../../store/slices/pokemonSlice';
 import './Pagination.css';
 
 const Pagination = () => {

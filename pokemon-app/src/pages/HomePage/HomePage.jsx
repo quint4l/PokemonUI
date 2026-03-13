@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemonList } from '../store/slices/pokemonSlice';
-import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
-import PokemonList from '../components/PokemonList';
-import Pagination from '../components/Pagination';
+import { getPokemonList } from '../../store/slices/pokemonSlice';   
+import Header from '../../components/Header/Header';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import PokemonList from '../../components/PokemonList/PokemonList';
+import Pagination from '../../components/Pagination/Pagination';
 import './HomePage.css';
 
 const HomePage = () => {

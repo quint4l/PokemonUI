@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchTerm, setFilterType, resetFilters } from '../store/slices/pokemonSlice';
+import { setSearchTerm, setFilterType, resetFilters } from '../../store/slices/pokemonSlice';
 import { CgPokemon } from 'react-icons/cg';
 import './SearchBar.css';
 
