@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchPokemonDetail } from '../services/pokemonService';
+import { fetchPokemonDetail } from "../../services/pokemonService";
 import './PokemonCard.css';
 
 // Mapa de colores para los tipos de Pokémon
