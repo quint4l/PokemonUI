@@ -27,7 +27,6 @@
   font-size: 1.1rem;
   font-family: 'Press Start 2P', cursive;
   outline: none;
-  background: #fff;
   color: #000;
 }
 
@@ -36,7 +35,7 @@
   font-style: italic;
 }
 
-.search-button {
+.pokeball-wrapper {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -47,23 +46,21 @@
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Press Start 2P', cursive;
-  cursor: pointer;
   transition: background-color 0.3s, transform 0.1s;
   border-left: 3px solid #000;
 }
 
-.search-button:hover {
+.pokeball-wrapper:hover {
   background-color: #c02d0a;
   transform: scale(1.02);
 }
 
-.search-button:active {
+.pokeball-wrapper:active {
   transform: scale(0.98);
 }
 
 .pokeball-icon {
-  font-size: 1.2rem;
-  filter: drop-shadow(2px 2px 0 #000);
+  cursor: default;
 }
 
 .filters {
@@ -100,31 +97,29 @@
 }
 
 .type-select option {
-  background-color: #222;              /* Fondo oscuro retro */
-  color: #fff;                          /* Texto blanco */
+  background-color: #222;
+  color: #fff;
   font-family: 'Press Start 2P', cursive;
-  font-size: 0.75rem;                   /* Tamaño reducido para mejor ajuste */
-  padding: 12px 15px;                    /* Más espacio interior */
-  text-shadow: 1px 1px 0 #000;           /* Sombra negra para dar relieve */
-  border-bottom: 1px solid #ffde00;      /* Línea divisoria amarilla Pokémon */
-  letter-spacing: 0.5px;                 /* Ligero espaciado */
+  font-size: 0.75rem;
+  padding: 12px 15px;
+  text-shadow: 1px 1px 0 #000;
+  border-bottom: 1px solid #ffde00;
+  letter-spacing: 0.5px;
   transition: background-color 0.2s;
 }
 
 .type-select option:hover {
-  background-color: #e3350d;             /* Rojo Pokémon al pasar el mouse */
+  background-color: #e3350d;
   color: white;
   cursor: pointer;
 }
 
 .type-select option:checked {
-  background: linear-gradient(135deg, #ffde00, #f0b800); /* Degradado amarillo */
-  color: #000;                            /* Texto negro para contraste */
-  text-shadow: 1px 1px 0 #fff;             /* Sombra blanca */
+  background: linear-gradient(135deg, #ffde00, #f0b800);
+  color: #000;
+  text-shadow: 1px 1px 0 #fff;
   font-weight: bold;
 }
-
-
 
 .reset-button {
   padding: 12px 25px;
@@ -146,25 +141,84 @@
   box-shadow: 2px 2px 0 #000;
 }
 
+/* Móviles (hasta 600px) */
 @media (max-width: 600px) {
   .search-bar {
     flex-direction: column;
   }
-  
+
   .search-button {
     border-left: none;
     border-top: 3px solid #000;
     justify-content: center;
   }
-  
+
   .filters {
     flex-direction: column;
     align-items: stretch;
-    
-    
   }
-  
-  .type-select, .reset-button {
+
+  .type-select,
+  .reset-button {
     width: 100%;
+  }
+}
+
+/* Tablets (601px a 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .search-container {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+
+  .search-button {
+    font-size: 0.85rem;
+    padding: 12px 20px;
+  }
+
+  .type-select {
+    min-width: 200px;
+    font-size: 0.85rem;
+    padding: 10px 15px;
+    padding-right: 35px;
+  }
+
+  .reset-button {
+    font-size: 0.7rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Móviles muy pequeños (hasta 400px) */
+@media (max-width: 400px) {
+  .search-bar input {
+    font-size: 0.7rem;
+    padding: 10px 12px;
+  }
+
+  .search-button {
+    font-size: 0.7rem;
+    padding: 10px 15px;
+  }
+
+  .pokeball-icon {
+    font-size: 1rem;
+  }
+
+  .type-select {
+    font-size: 0.7rem;
+    padding: 8px 12px;
+    padding-right: 30px;
+    min-width: 0;
+  }
+
+  .reset-button {
+    font-size: 0.6rem;
+    padding: 8px 15px;
   }
 }

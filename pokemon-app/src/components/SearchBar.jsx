@@ -80,10 +80,7 @@ const SearchBar = () => {
           value={localSearch}
           onChange={(e) => setLocalSearch(e.target.value)}
         />
-        <button type="submit" className="search-button">
-          <CgPokemon className="pokeball-icon" />
-          Buscar
-        </button>
+           
       </form>
 
       <div className="filters">

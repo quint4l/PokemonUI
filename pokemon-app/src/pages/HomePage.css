@@ -3,7 +3,13 @@
   flex-direction: column;
   min-height: 100vh;
   padding: 20px;
-  background: #f0f0f0; /* Fondo gris claro */
+}
+
+body {
+  background-color: #b0b0b0;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0px, rgba(255,255,255,0.1) 2px, transparent 2px, transparent 6px);
+  background-size: 8px 8px;
+  min-height: 100vh;
 }
 
 main {
@@ -12,4 +18,34 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
+
+/* Móviles pequeños */
+@media (max-width: 600px) {
+  .home-page {
+    padding: 10px;
+  }
+  main {
+    padding: 0 10px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  main {
+    padding: 0 15px;
+  }
+}
+
+/* Móviles muy pequeños (ej. iPhone SE) */
+@media (max-width: 400px) {
+  .home-page {
+    padding: 5px;
+  }
+  main {
+    padding: 0 5px;
+  }
+}
+
