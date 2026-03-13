@@ -1,10 +1,10 @@
 import React from 'react';
-import './Header.css'; // opcional
+import './Header.css'; 
 
 const Header = () => {
   return (
     <header className="header">
-      <h1>Carlos Rodríguez</h1> {/* Reemplaza con tu nombre completo */}
+      <h1>Pokemon - Pokedex</h1> 
     </header>
   );
 };

@@ -9,11 +9,13 @@ import './HomePage.css';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { currentPage, searchTerm } = useSelector((state) => state.pokemon);
+  const { currentPage, searchTerm, filterType } = useSelector((state) => state.pokemon);
 
   useEffect(() => {
-    dispatch(getPokemonList({ page: currentPage, searchTerm }));
-  }, [dispatch, currentPage, searchTerm]);
+    // Cada vez que cambie la página, el término de búsqueda o el filtro de tipo,
+    // se dispara la petición para obtener los Pokémon correspondientes.
+    dispatch(getPokemonList({ page: currentPage, searchTerm, filterType }));
+  }, [dispatch, currentPage, searchTerm, filterType]);
 
   return (
     <div className="home-page">
