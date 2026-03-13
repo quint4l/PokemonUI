@@ -90,28 +90,6 @@ http://localhost:5173
 npm run build
 ```
 
-Los archivos optimizados se generarán en la carpeta:
-
-```
-dist/
-```
-
----
-
-## Estructura del Proyecto
-
-```
-src/
-│
-├── components/      # Componentes reutilizables
-├── pages/           # Vistas principales
-├── store/           # Configuración de Redux Toolkit
-├── services/        # Peticiones a la API
-├── assets/          # Imágenes y recursos
-└── styles/          # Estilos globales
-```
-
----
 
 ## Documentación del Proyecto
 
