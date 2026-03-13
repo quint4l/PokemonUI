@@ -1,39 +1,59 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchPokemonList, fetchPokemonByType } from '../../services/pokemonService'; // Importamos la nueva función
+import { fetchPokemonList, fetchPokemonByType } from '../../services/pokemonService';
 
-// Acción asíncrona para obtener la lista de Pokémon (ahora con filterType)
 export const getPokemonList = createAsyncThunk(
   'pokemon/getList',
   async ({ page, searchTerm, filterType }) => {
-    let pokemons = [];
-
-    // 1. Si hay filtro por tipo y no es 'all', obtenemos de la API de tipos
+    // Si hay filtro por tipo
     if (filterType && filterType !== 'all') {
       const response = await fetchPokemonByType(filterType);
-      // La API de tipo devuelve { pokemon: [{ pokemon: { name, url } }] }
-      pokemons = response.pokemon.map(p => p.pokemon);
-    } else {
-      // Sin filtro de tipo: obtenemos una lista grande (hasta 1000)
-      const response = await fetchPokemonList(1000, 0);
-      pokemons = response.results;
+      let pokemons = response.pokemon.map(p => p.pokemon);
+
+      if (searchTerm) {
+        pokemons = pokemons.filter(p =>
+          p.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      }
+
+      const count = pokemons.length;
+      const offset = (page - 1) * 6;
+      const paginated = pokemons.slice(offset, offset + 6);
+
+      return {
+        results: paginated,
+        count: count,
+      };
+    } 
+    // Sin filtro de tipo: usar paginación normal con la API
+    else {
+      const offset = (page - 1) * 6;
+      const response = await fetchPokemonList(6, offset);
+      
+      let results = response.results;
+      const totalCount = response.count; // Total real de Pokémon
+
+      // Si hay búsqueda por nombre, necesitamos filtrar localmente
+      // pero eso requeriría obtener todos... Es un compromiso.
+      // Para búsqueda, mantendremos el enfoque anterior.
+      if (searchTerm) {
+        // Obtenemos una lista grande para filtrar
+        const allResponse = await fetchPokemonList(1000, 0);
+        const filtered = allResponse.results.filter(p =>
+          p.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        const offset = (page - 1) * 6;
+        const paginated = filtered.slice(offset, offset + 6);
+        return {
+          results: paginated,
+          count: filtered.length,
+        };
+      }
+
+      return {
+        results: results,
+        count: totalCount,
+      };
     }
-
-    // 2. Aplicar filtro de búsqueda por nombre (si hay)
-    if (searchTerm) {
-      pokemons = pokemons.filter(p =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    // 3. Paginación manual (6 por página)
-    const count = pokemons.length;
-    const offset = (page - 1) * 6;
-    const paginated = pokemons.slice(offset, offset + 6);
-
-    return {
-      results: paginated,
-      count: count,
-    };
   }
 );
 
